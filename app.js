@@ -2,7 +2,12 @@
 const https = require('https')
 
 //Specific Year
-const year = '2021'
+const year = '2020'
+
+/*
+for (var n = 0; n < 5 + 1; n++) {
+}
+*/
 
 function fetch(url) {
   return new Promise((resolve, reject) => {
@@ -48,10 +53,19 @@ function bestDiff(data) {
 
 async function main() {
   console.log(`Analizing year ${year}...`);
-  const data = await callAPI(year);
+  const data21 = await callAPI('2021');
+  const data20 = await callAPI('2020');
+  const data19 = await callAPI('2019');
+  const data18 = await callAPI('2018');
 
-  const { maxDiff, whenToBuy, whenToSell } = bestDiff(data.rates);
+  const result21 = bestDiff(data21.rates);
+  const result20 = bestDiff(data20.rates);
+  const result19 = bestDiff(data19.rates);
+  const result18 = bestDiff(data18.rates);
 
+  const finalresult = [result21, result20, result19, result18]
+
+/*
   console.log('---');
   console.log('When to buy:', whenToBuy.effectiveDate);
   console.log('bid price:', whenToBuy.bid);
@@ -60,6 +74,8 @@ async function main() {
   console.log('sell price:', whenToSell.ask);
   console.log('---');
   console.log('Gain:', Math.floor(maxDiff * 100) + '%');
+  */
+ console.log(finalresult)
 }
 
 main()
