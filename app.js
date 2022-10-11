@@ -51,9 +51,6 @@ async function main() {
   const data = await callAPI(year);
 
   const { maxDiff, whenToBuy, whenToSell } = bestDiff(data.rates);
-  const { maxDiff, whenToBuy, whenToSell } = bestDiff(data.rates);
-  const { maxDiff, whenToBuy, whenToSell } = bestDiff(data.rates);
-  const { maxDiff, whenToBuy, whenToSell } = bestDiff(data.rates);
 
   console.log('---');
   console.log('When to buy:', whenToBuy.effectiveDate);
@@ -64,5 +61,5 @@ async function main() {
   console.log('---');
   console.log('Gain:', Math.floor(maxDiff * 100) + '%');
 }
-git 
+
 main()
